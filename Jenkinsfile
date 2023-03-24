@@ -13,11 +13,8 @@ this_branch = ""
 this_build = ""
 
 pipeline {
-    agent { 
-        node { 
-            label 'Dev' 
-        }
-    }
+    agent none
+
     parameters {
         string(name: 'environment', defaultValue: 'default', description: 'Workspace/environment file to use for deployment')
         string(name: 'version', defaultValue: '', description: 'Version variable to pass to Terraform')
@@ -32,11 +29,7 @@ pipeline {
 
     stages {
         stage('Develop') {
-            agent { 
-                node { 
-                    label 'Dev' 
-                } 
-            }
+            agent any
             stages {
                 stage ('Collect data') {
                     steps {
