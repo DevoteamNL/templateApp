@@ -99,19 +99,19 @@ pipeline {
     }
     post {
         always {
-            script {
-                step(
-                [
-                    $class              : 'RobotPublisher',
-                    outputPath          : 'test_results',
-                    outputFileName      : 'output.xml',
-                    reportFileName      : 'report.html',
-                    logFileName         : 'log.html',
-                    disableArchiveOutput: true,
-                    otherFiles          : "*.png,*.jpg",
-                ]
-                )
-            }
+            //script {
+            //     step(
+            //     [
+            //         $class              : 'RobotPublisher',
+            //         outputPath          : 'test_results',
+            //         outputFileName      : 'output.xml',
+            //         reportFileName      : 'report.html',
+            //         logFileName         : 'log.html',
+            //         disableArchiveOutput: true,
+            //         otherFiles          : "*.png,*.jpg",
+            //     ]
+            //     )
+            // }
             echo "Archiving artifacts"
             //archiveArtifacts artifacts: '**/*', fingerprint: true
             //junit 'build/reports/**/*.xml'
