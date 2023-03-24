@@ -53,7 +53,7 @@ pipeline {
                                     currentBuild.displayName = params.version
                                 }
                                 sh 'terraform -chdir=AppCICD init -input=false'
-                                sh 'terraform -chdir=AppCICD plan -input=false -var-file='../testapp.auto.tfvars.json''
+                                sh "terraform -chdir=AppCICD plan -input=false -var-file='../testapp.auto.tfvars.json'"
                             }
                         }
                          stage('Apply') {
