@@ -13,8 +13,11 @@ this_branch = ""
 this_build = ""
 
 pipeline {
-    agent none
-
+    agent { 
+        node { 
+            label 'Dev' 
+        }
+    }
     parameters {
         string(name: 'environment', defaultValue: 'default', description: 'Workspace/environment file to use for deployment')
         string(name: 'version', defaultValue: '', description: 'Version variable to pass to Terraform')
