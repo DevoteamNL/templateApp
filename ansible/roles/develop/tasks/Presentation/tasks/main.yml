@@ -4,24 +4,24 @@
 
 ---
 - name: install SomeApp common configuration
-  import_tasks: common.yaml
+  import_tasks: roles/develop/tasks/Presentation/tasks/common.yaml
 
 - name: install SomeApp customer specific configuration additions
-  import_tasks: customer.yaml
+  import_tasks: roles/develop/tasks/Presentation/tasks/customer.yaml
 
 - name: install SomeApp development environment specific configuration additions
-  import_tasks: development.yaml
+  import_tasks: roles/develop/tasks/Presentation/tasks/development.yaml
 
 - name: install SomeApp test environment specific configuration additions
-  import_tasks: test.yaml
+  import_tasks: roles/develop/tasks/Presentation/tasks/test.yaml
 
 - name: install SomeApp acceptance environment specific configuration additions
-  import_tasks: accept.yaml
+  import_tasks: roles/develop/tasks/Presentation/tasks/accept.yaml
 
 - name: install SomeApp production environment specific configuration additions
-  import_tasks: production.yaml
+  import_tasks: roles/develop/tasks/Presentation/tasks/production.yaml
 
 - name: install SomeApp education environment specific configuration additions
-  import_tasks: education.yaml
+  import_tasks: roles/develop/tasks/Presentation/tasks/education.yaml
 
 ...

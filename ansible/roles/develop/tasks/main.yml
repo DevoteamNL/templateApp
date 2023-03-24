@@ -4,12 +4,7 @@
 
 ---
 - name: Setup Presenation layer
-  import_tasks: Presentation/presentation.yml
-    
-- name: Setup Application layer
-  import_tasks: Application/application.yml
+  import_tasks: roles/develop/tasks/Presentation/tasks/main.yml
 
-- name: Setup Data layer
-  import_tasks: Data/data.yml
     
 ...
