@@ -13,7 +13,7 @@ this_branch = ""
 this_build = ""
 
 pipeline {
-    agent none
+    agent any
 
     parameters {
         string(name: 'environment', defaultValue: 'default', description: 'Workspace/environment file to use for deployment')
@@ -29,7 +29,11 @@ pipeline {
 
     stages {
         stage('Develop') {
-            agent any
+            agent { 
+                node { 
+                    label 'Dev' 
+                } 
+            }
             stages {
                 stage ('Collect data') {
                     steps {
