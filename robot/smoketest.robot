@@ -18,9 +18,9 @@ See if the server is running
     Open Browser                ${WEBSITE URL}       ${BROWSER1}
     Maximize Browser Window
     Set Selenium Speed          ${DELAY}
-    Keycloak Page Should Be Open
+    Gitea Page Should Be Open
     Close Browser
 
-Keycloak Page Should Be Open
+Gitea Page Should Be Open
     Sleep                       1
-    Title Should Be    Sign in to Welcome to your Development Toolkit
+    Title Should Be    Our single source of truth
