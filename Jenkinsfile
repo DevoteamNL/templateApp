@@ -188,7 +188,7 @@ def stopagent(branch, build, commit) {
 }
 
 def startplaybook(stage,compartiment) {
-    ansiblePlaybook installation: 'ansible', inventory: "./AppCICD/terraform.py", playbook: "${stage}.yml", extraVars: ["omgeving": "${stage}", "compartiment": "${compartiment}"], extras: '-vvvv'
+    ansiblePlaybook installation: 'ansible', inventory: "./AppCICD/terraform.py", playbook: "ansible/${stage}.yml", extraVars: ["omgeving": "${stage}", "compartiment": "${compartiment}"], extras: '-vvvv'
 
 }
 
