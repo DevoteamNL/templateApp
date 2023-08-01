@@ -89,9 +89,18 @@ pipeline {
                         }
                     }
                 }
-                stage ('Cleaning...') {
-                    steps {
-                        cleanup("Develop", "${gitCommit}", "${cml_token}")
+                stage ('Cleanup') {
+                    stages {
+                        stage('Cleanup after myself') {
+                            steps {
+                                cleanup("Develop", "${gitCommit}", "${cml_token}")
+                            }
+                        }
+                         stage('Destroy infrastructure') {
+                             steps {
+                                 sh "terraform -chdir=AppCICD destroy -input=false -auto-approve -var-file='../testapp.auto.tfvars.json'"
+                             }
+                         }
                     }
                 }
             }
@@ -105,7 +114,7 @@ pipeline {
             //         $class              : 'RobotPublisher',
             //         outputPath          : 'test_results',
             //         outputFileName      : 'output.xml',
-            //         reportFileName      : 'report.html',
+            //         reportFileName      : '${this_stage}-${thisbranch}-${thisbuild}-${gitcommit}.html',
             //         logFileName         : 'log.html',
             //         disableArchiveOutput: true,
             //         otherFiles          : "*.png,*.jpg",
